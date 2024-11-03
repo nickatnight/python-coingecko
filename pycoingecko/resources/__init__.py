@@ -1,6 +1,7 @@
 from pycoingecko.resources.asset_platforms import AssetPlatforms
 from pycoingecko.resources.categories import Categories
 from pycoingecko.resources.coins import Coins
+from pycoingecko.resources.companies import Companies
 from pycoingecko.resources.contract import Contract
 from pycoingecko.resources.derivatives import Derivatives
 from pycoingecko.resources.exchange_rates import ExchangeRates
@@ -17,6 +18,7 @@ __all__ = [
     "Categories",
     "Contract",
     "Coins",
+    "Companies",
     "Derivatives",
     "Exchanges",
     "ExchangeRates",

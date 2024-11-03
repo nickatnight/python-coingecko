@@ -53,3 +53,7 @@ class CoinGeckoDemoClient:
     @property
     def global_data(self) -> resources.GlobalData:
         return resources.GlobalData(self.http)
+
+    @property
+    def companies(self) -> resources.Companies:
+        return resources.Companies(self.http)
