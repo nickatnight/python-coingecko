@@ -38,7 +38,11 @@ class Coins:
     def coin_tickers_by_id(self, *, coin_id: str, **kwargs: Any) -> dict:
         "Query the coin tickers on both centralized exchange (cex) and decentralized exchange (dex) based on a particular coin id."
         path = CoinGeckoApiUrls.COIN_TICKERS.format(id=coin_id)
-        request: CoinGeckoRequestParams = {"params": kwargs}
+        request: CoinGeckoRequestParams = {}
+
+        if kwargs:
+            request = {"params": kwargs}
+
         response = self.http.send(path=path, **request)
 
         return cast(dict, response)
