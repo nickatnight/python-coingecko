@@ -39,4 +39,4 @@ def test_supported_methods_count() -> None:
     client = CoinGeckoProClient(http=MagicMock())
 
     # Act / Assert
-    assert len(get_client_api_methods(client=client)) == 14
+    assert len(get_client_api_methods(client=client)) == 15
