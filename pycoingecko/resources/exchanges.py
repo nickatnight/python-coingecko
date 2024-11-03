@@ -31,7 +31,11 @@ class Exchanges:
     def exchange_tickers_by_id(self, *, exchange_id: str, **kwargs: Any) -> dict:
         "Query exchange's tickers based on exchange’s id."
         path = CoinGeckoApiUrls.EXCHANGE_TICKERS.format(id=exchange_id)
-        request: CoinGeckoRequestParams = {"params": kwargs}
+        request: CoinGeckoRequestParams = {}
+
+        if kwargs:
+            request = {"params": kwargs}
+
         response = self.http.send(path=path, **request)
 
         return cast(dict, response)

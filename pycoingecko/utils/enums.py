@@ -64,3 +64,6 @@ class CoinGeckoApiUrls:
 
     # Key
     KEY = "key"
+
+    # Companies
+    COMPANIES = "companies/public_treasury/{coin_id}"

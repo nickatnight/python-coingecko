@@ -22,7 +22,7 @@ from pycoingecko.utils.helpers import get_client_api_methods
         ("exchange_rates", resources.ExchangeRates),
         ("search", resources.Search),
         ("trending", resources.Trending),
-        ("global_market", resources.GlobalData),
+        ("global_data", resources.GlobalData),
     ],
 )
 def test_client_has_correct_methods(method_name: str, class_instance: Any) -> None:
@@ -38,4 +38,4 @@ def test_supported_methods_count() -> None:
     client = CoinGeckoDemoClient(http=MagicMock())
 
     # Act / Assert
-    assert len(get_client_api_methods(client=client)) == 12
+    assert len(get_client_api_methods(client=client)) == 13

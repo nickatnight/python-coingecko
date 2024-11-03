@@ -51,5 +51,9 @@ class CoinGeckoDemoClient:
         return resources.Trending(self.http)
 
     @property
-    def global_market(self) -> resources.GlobalData:
+    def global_data(self) -> resources.GlobalData:
         return resources.GlobalData(self.http)
+
+    @property
+    def companies(self) -> resources.Companies:
+        return resources.Companies(self.http)
