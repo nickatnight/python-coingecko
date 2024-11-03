@@ -1,4 +1,3 @@
-from pycoingecko import resources
 from pycoingecko.clients.demo import CoinGeckoDemoClient
 from pycoingecko.resources import pro
 
@@ -11,8 +10,8 @@ class CoinGeckoProClient(CoinGeckoDemoClient):
         return pro.CoinsPro(self.http)
 
     @property
-    def asset_platforms(self) -> resources.AssetPlatforms:
-        return resources.AssetPlatforms(self.http)
+    def asset_platforms(self) -> pro.AssetPlatformsPro:
+        return pro.AssetPlatformsPro(self.http)
 
     @property
     def exchanges(self) -> pro.ExchangesPro:

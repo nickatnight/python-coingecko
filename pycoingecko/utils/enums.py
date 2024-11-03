@@ -19,6 +19,10 @@ class CoinGeckoApiUrls:
     COIN_TOP_GAINERS_AND_LOSERS = "coins/top_gainers_losers"
     COIN_RECENTLY_ADDED = "coins/list/new"
     COIN_OHLC_CHART_TIME_RANGE = "coins/{id}/ohlc/range"
+    COIN_CIRCULATING_SUPPLY = "coins/{coin_id}/circulating_supply_chart"
+    COIN_CIRCULATING_SUPPLY_TIME_RANGE = "coins/{id}/circulating_supply_chart/range"
+    COIN_TOTAL_SUPPLY = "coins/{id}/total_supply_chart"
+    COIN_TOTAL_SUPPLY_TIME_RANGE = "coins/{id}/total_supply_chart/range"
 
     # Contract
     COINS_CONTRACT_ADDRESS = "coins/{id}/contract/{contract_address}"
@@ -31,6 +35,7 @@ class CoinGeckoApiUrls:
 
     # Asset platform
     ASSET_PLATFORMS = "asset_platforms"
+    ASSET_PLATFORMS_TOKEN_LIST = "token_lists/{asset_platform_id}/all.json"
 
     # Categories
     CATEGORIES = "categories/list"
@@ -49,6 +54,19 @@ class CoinGeckoApiUrls:
     DERIVATIVES_EXCHANGES = "derivatives/exchanges"
     DERIVATIVES_EXCHANGE = "derivatives/exchanges/{id}"
     DERIVATIVES_EXCHANGE_LIST = "derivatives/exchanges/list"
+
+    # NFTs
+    NFTS = "nfts/list"
+    NFTS_COLLECTION = "nfts/{id}"
+    NFTS_COLLECTION_CONTRACT_ADDRESS = (
+        "nfts/{asset_platform_id}/contract/{contract_address}"
+    )
+    NFTS_MARKET = "nfts/markets"
+    NFTS_HISTORICAL_CHART = "nfts/{id}/market_chart"
+    NFTS_HISTORICAL_CHART_BY_ADDRESS = (
+        "nfts/{asset_platform_id}/contract/{contract_address}/market_chart"
+    )
+    NFTS_TICKERS_BY_ID = "nfts/{id}/tickers"
 
     # BTC-to-currency exchange rates
     BTC_TO_CURRENCY = "exchange_rates"

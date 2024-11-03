@@ -11,7 +11,15 @@ on:
 name: lint and test
 
 jobs:
+  pre-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+      - uses: pre-commit/action@v3.0.1
+
   unit-tests:
+    needs: [pre-commit]
     name: ci
     runs-on: ubuntu-latest
 
@@ -29,9 +37,6 @@ jobs:
 
       - name: Install the project
         run: uv sync
-
-      - name: Run lint
-        run: make lint-all
 
       - name: Run coverage
         run: uv run pytest --cov-report=xml:coverage.xml --cov=pycoingecko/ tests/
@@ -52,6 +57,7 @@ jobs:
       #     UV_PUBLISH_TOKEN: ${{ secrets.PYPI_RELEASE_TOKEN }}
 
   create-release:
+    name: Create GitHub Release
     if: startsWith(github.ref, 'refs/tags/')
     permissions:
       contents: write

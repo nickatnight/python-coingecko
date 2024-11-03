@@ -7,6 +7,7 @@ from pycoingecko.resources.derivatives import Derivatives
 from pycoingecko.resources.exchange_rates import ExchangeRates
 from pycoingecko.resources.exchanges import Exchanges
 from pycoingecko.resources.global_data import GlobalData
+from pycoingecko.resources.nfts import NFTs
 from pycoingecko.resources.ping import Ping
 from pycoingecko.resources.search import Search
 from pycoingecko.resources.simple import Simple
@@ -21,6 +22,7 @@ __all__ = [
     "Companies",
     "Derivatives",
     "Exchanges",
+    "NFTs",
     "ExchangeRates",
     "GlobalData",
     "Ping",

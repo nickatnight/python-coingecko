@@ -15,10 +15,8 @@
     </a>
 </p>
 
-⚠️ This package is actively being developed and accepting PRs (see TODO section)!
-
 A Python wrapper for coingecko.com V3 api. Other notable api wrappers that didn't satisfy my need:
-- [pycoingecko](https://github.com/man-c/pycoingecko) has not been active in over two years and does not support the newer endpoints
+- [pycoingecko](https://github.com/man-c/pycoingecko) has not been active in over two years and does not support the newer api endpoints
 
 ## Features
 - 🪙 **CoinGecko** api routes, including current beta
@@ -94,68 +92,3 @@ Run pytest
 ```sh
 $ make test
 ```
-
-## TODO
-### APIs
-
-- Ping ✅
-  - ~~Check API server status~~
-- Simple ✅
-  - ~~Coin Price~~
-  - ~~Token Address Price~~
-  - ~~Supported Currencies~~
-- Coins ✅
-  - ~~Coins List~~
-  - ~~Coins List With Market Data~~
-  - ~~Coin Data~~
-  - ~~Coin Tickers~~
-  - ~~Coin Historical Data~~
-  - ~~Coin Historical Chart Data~~
-  - ~~Coin Historical Chart Data Within Time Range~~
-  - ~~Coin OHLC Chart~~
-- Contract ✅
-  - ~~Coin Data~~
-  - ~~Coin Historical Chart Data~~
-  - ~~Coin Historical Chart Data Within Time Range~~
-- Asset Platforms ✅
-  - ~~Asset List~~
-- Categories ✅
-  - ~~List Categories~~
-  - ~~Market Data by Category~~
-- Exchanges ✅
-  - ~~List Exchanges~~
-  - ~~Exchange Data~~
-  - ~~Tickers~~
-  - ~~Volume Chart~~
-- Derivatives ✅
-  - ~~Tickers~~
-  - ~~Derivative Exchanges~~
-  - ~~Derivative Data~~
-- NFTs (Beta)
-  - List NFTs
-  - Collection Data
-- Exchange Rates ✅
-  - ~~BTC to Currency Rates~~
-- Search ✅
-  - ~~General Search~~
-- Trending ✅
-  - ~~Trending Search~~
-- Global ✅
-  - ~~Global Market Data~~
-  - ~~DeFi Market Data~~
-- Companies (Beta)
-  - Public Companies Holdings
-- ~~Pro~~
-- Enterprise
-- On Chain
-
-### Ops
-- ~~CI for coverage and codecov~~
-
-### Docs
-- ~~Update README~~
-- Add sphinx
-
-### Package
-- Add polrs
-- 100% coverage
