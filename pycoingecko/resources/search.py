@@ -9,7 +9,11 @@ class Search:
 
     def search(self, **kwargs: Any) -> dict:
         "Search for coins, categories and markets listed on CoinGecko."
-        request: CoinGeckoRequestParams = {"params": kwargs}
+        request: CoinGeckoRequestParams = {}
+
+        if kwargs:
+            request = {"params": kwargs}
+
         response = self.http.send(path=CoinGeckoApiUrls.SEARCH, **request)
 
         return cast(dict, response)

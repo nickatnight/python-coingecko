@@ -1,6 +1,6 @@
 from typing import Optional, cast
 
-from pycoingecko.resources.global_market import GlobalData
+from pycoingecko.resources.global_data import GlobalData
 from pycoingecko.utils import CoinGeckoApiUrls, CoinGeckoRequestParams
 
 

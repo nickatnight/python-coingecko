@@ -19,5 +19,5 @@ class CoinGeckoProClient(CoinGeckoDemoClient):
         return pro.ExchangesPro(self.http)
 
     @property
-    def global_market(self) -> pro.GlobalDataPro:
+    def global_data(self) -> pro.GlobalDataPro:
         return pro.GlobalDataPro(self.http)

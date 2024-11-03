@@ -23,7 +23,7 @@ from pycoingecko.utils.helpers import get_client_api_methods
         ("exchange_rates", resources.ExchangeRates),
         ("search", resources.Search),
         ("trending", resources.Trending),
-        ("global_market", pro.GlobalDataPro),
+        ("global_data", pro.GlobalDataPro),
     ],
 )
 def test_ping_called_with_correct_args(method_name: str, class_instance: Any) -> None:

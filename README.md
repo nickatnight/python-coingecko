@@ -6,7 +6,9 @@
     <a href="https://codecov.io/gh/nickatnight/python-coingecko">
         <img alt="Coverage" src="https://codecov.io/gh/nickatnight/python-coingecko/branch/main/graph/badge.svg?token=I20H47UKRK"/>
     </a>
-    <a href="https://github.com/nickatnight/python-coingecko/releases"><img alt="Release Status" src="https://img.shields.io/github/v/release/nickatnight/python-coingecko"></a>
+    <a href="https://pypi.org/project/python-coingecko/">
+        <img alt="PyPi Shield" src="https://img.shields.io/pypi/v/python-coingecko">
+    </a>
     <a href="https://github.com/psf/black"><img alt="Style Badge" src="https://img.shields.io/badge/code%20style-black-000000"></a>
     <a href="https://github.com/nickatnight/python-coingecko/blob/master/LICENSE">
         <img alt="License Shield" src="https://img.shields.io/github/license/nickatnight/python-coingecko">
@@ -19,13 +21,19 @@ A Python wrapper for coingecko.com V3 api. Other notable api wrappers that didn'
 - [pycoingecko](https://github.com/man-c/pycoingecko) has not been active in over two years and does not support the newer endpoints
 
 ## Features
+- 🪙 **CoinGecko** api routes, including current beta
 - ✏️ **MyPy** Fully typed using most [recent versions](https://mypy-lang.org/)
 - ⚒️ **Modern tooling** like [uv](https://docs.astral.sh/uv/), [ruff](https://docs.astral.sh/ruff/), and [pre-commit](https://pre-commit.com/)
 - 📥 **GitHub Actions** CI/CD to automate everything
 - ↩️ **Code Coverage** Fully tested using tools like [Codecov](https://about.codecov.io/)
 
+## Installation
+```sh
+$ pip install python-coingecko
+```
+
 ## Usage
-For demo (free)
+Demo (free)
 ```
 >>> from pycoingecko import CoinGecko
 >>> coingecko = CoinGecko(api_key=<YOUR_API_KEY>)
@@ -68,6 +76,25 @@ Pro
   }
 ]
 ```
+
+## Development
+To develop on this project, you'll need [uv](https://docs.astral.sh/uv/getting-started/installation/) installed.
+
+Install dev dependencies
+```sh
+$ uv sync
+```
+
+Run linters black/ruff/isort/mypy
+```sh
+$ make lint-all
+```
+
+Run pytest
+```sh
+$ make test
+```
+
 ## TODO
 ### APIs
 
@@ -131,4 +158,4 @@ Pro
 
 ### Package
 - Add polrs
-- ~~100% coverage~~
+- 100% coverage
