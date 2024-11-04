@@ -1,18 +1,16 @@
 from unittest.mock import MagicMock
 
 from pycoingecko.resources.ping import Ping
+from pycoingecko.utils import CoinGeckoApiUrls
 
-from ..fixture_data import CoinGeckoAPIFixtureData
 
-
-def test_ping_api_happy() -> None:
+def test_ping_api_called_with_correct_args() -> None:
     # Arrange
-    mock_http = MagicMock(
-        send=MagicMock(return_value=CoinGeckoAPIFixtureData.ping_response())
-    )
+    mock_http = MagicMock()
 
     # Act
     client = Ping(http=mock_http)
+    client.ping()
 
     # Assert
-    assert client.ping() == CoinGeckoAPIFixtureData.ping_response()
+    mock_http.send.assert_called_once_with(path=CoinGeckoApiUrls.PING)

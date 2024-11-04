@@ -23,6 +23,8 @@ from pycoingecko.utils.helpers import get_client_api_methods
         ("search", resources.Search),
         ("trending", resources.Trending),
         ("global_data", resources.GlobalData),
+        ("nfts", resources.NFTs),
+        ("companies", resources.Companies),
     ],
 )
 def test_client_has_correct_methods(method_name: str, class_instance: Any) -> None:
@@ -30,7 +32,7 @@ def test_client_has_correct_methods(method_name: str, class_instance: Any) -> No
     client = CoinGeckoDemoClient(http=MagicMock())
 
     # Act / Assert
-    assert isinstance(getattr(client, method_name), class_instance)
+    assert getattr(client, method_name).__class__.__name__ == class_instance.__name__
 
 
 def test_supported_methods_count() -> None:

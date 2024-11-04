@@ -4,7 +4,7 @@ from pycoingecko.resources.pro.global_data import GlobalDataPro
 from pycoingecko.utils import CoinGeckoApiUrls
 
 
-def test_coins_top_gainers_and_losers_api_expected_response() -> None:
+def test_global_cap_chart_api_expected_response() -> None:
     # Arrange
     mock_http = MagicMock()
 

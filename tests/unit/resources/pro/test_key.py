@@ -4,7 +4,7 @@ from pycoingecko.resources.pro.key import Key
 from pycoingecko.utils import CoinGeckoApiUrls
 
 
-def test_coins_top_gainers_and_losers_api_expected_response() -> None:
+def test_coins_key_api_expected_response() -> None:
     # Arrange
     mock_http = MagicMock()
 
