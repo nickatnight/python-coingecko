@@ -16,12 +16,17 @@ class Simple:
         return cast(dict, response)
 
     def coin_price_by_token(
-        self, *, asset_id: str, contract_address: str, vs_currencies: str, **kwargs: Any
+        self,
+        *,
+        asset_id: str,
+        contract_addresses: str,
+        vs_currencies: str,
+        **kwargs: Any,
     ) -> dict:
         "Query a token price by using token contract address."
         path = CoinGeckoApiUrls.TOKEN_PRICE.format(id=asset_id)
         params = {
-            "contract_address": contract_address,
+            "contract_addresses": contract_addresses,
             "vs_currencies": vs_currencies,
             **kwargs,
         }
