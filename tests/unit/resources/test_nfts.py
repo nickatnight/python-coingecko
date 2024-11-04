@@ -13,7 +13,9 @@ def test_nft_list_api_called_with_correct_args() -> None:
     client.nft_list()
 
     # Assert
-    mock_http.send.assert_called_once_with(path=CoinGeckoApiUrls.NFTS)
+    mock_http.send.assert_called_once_with(
+        path=CoinGeckoApiUrls.NFTS, params={"page": 1, "per_page": 100}
+    )
 
 
 def test_nfts_collection_by_id_api_called_with_correct_args() -> None:

@@ -10,7 +10,9 @@ def test_search_api_called_with_correct_args() -> None:
 
     # Act
     client = Search(http=mock_http)
-    client.search()
+    client.search(query="sol")
 
     # Assert
-    mock_http.send.assert_called_once_with(path=CoinGeckoApiUrls.SEARCH)
+    mock_http.send.assert_called_once_with(
+        path=CoinGeckoApiUrls.SEARCH, params={"query": "sol"}
+    )

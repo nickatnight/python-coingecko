@@ -60,7 +60,7 @@ class CoinsPro(Coins):
         self, *, coin_id: str, days: str, interval: Optional[str] = None
     ) -> dict:
         "Query historical circulating supply of a coin by number of days away from now based on provided coin id."
-        path = CoinGeckoApiUrls.COIN_CIRCULATING_SUPPLY.format(id=coin_id)
+        path = CoinGeckoApiUrls.COIN_CIRCULATING_SUPPLY.format(coin_id=coin_id)
         params = {"days": days}
 
         if interval:

@@ -53,7 +53,7 @@ class NFTsPro(NFTs):
         path = CoinGeckoApiUrls.NFTS_HISTORICAL_CHART_BY_ADDRESS.format(
             asset_platform_id=asset_platform_id, contract_address=contract_address
         )
-        params = {"contract_address": contract_address, "days": days}
+        params = {"days": days}
         request: CoinGeckoRequestParams = {"params": params}
         response = self.http.send(path=path, **request)
 

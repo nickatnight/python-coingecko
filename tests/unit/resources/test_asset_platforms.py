@@ -3,20 +3,16 @@ from unittest.mock import MagicMock
 from pycoingecko.resources.asset_platforms import AssetPlatforms
 from pycoingecko.utils import CoinGeckoApiUrls
 
-from ..fixture_data import CoinGeckoAPIFixtureData
 
-
-def test_asset_platforms_happy() -> None:
+def test_asset_platforms_api_called_with_correct_args() -> None:
     # Arrange
-    mock_http = MagicMock(
-        send=MagicMock(return_value=CoinGeckoAPIFixtureData.asset_platforms_response())
-    )
+    mock_http = MagicMock()
 
     # Act
     client = AssetPlatforms(http=mock_http)
+    client.asset_platforms(filters="nft")
 
     # Assert
-    assert (
-        client.asset_platforms() == CoinGeckoAPIFixtureData.asset_platforms_response()
+    mock_http.send.assert_called_once_with(
+        path=CoinGeckoApiUrls.ASSET_PLATFORMS, params={"filters": "nft"}
     )
-    assert mock_http.send.called_once_with(path=CoinGeckoApiUrls.ASSET_PLATFORMS)

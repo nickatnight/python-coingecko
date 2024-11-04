@@ -11,8 +11,8 @@ class NFTs:
         self,
         *,
         order: Optional[str] = None,
-        per_page: Optional[int] = None,
-        page: Optional[int] = None,
+        per_page: Optional[int] = 100,
+        page: Optional[int] = 1,
     ) -> dict:
         "Query all supported NFTs with id, contract address, name, asset platform id and symbol on CoinGecko."
         params = {}
