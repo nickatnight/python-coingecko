@@ -9,10 +9,8 @@
     <a href="https://pypi.org/project/python-coingecko/">
         <img alt="PyPi Shield" src="https://img.shields.io/pypi/v/python-coingecko">
     </a>
-    <a href="https://img.shields.io/badge/python-3.9%20%7C%203.10%20%7C%203.11%20%7C%203.12-blue
-    ">
-        <img alt="Python Versions Shield" src="https://img.shields.io/badge/python-3.9%20%7C%203.10%20%7C%203.11%20%7C%203.12-blue
-        ">
+    <a href="https://img.shields.io/badge/Python-3.9%20|%203.10%20|%203.11%20|%203.12-blue?logo=python&logoColor=white">
+        <img alt="Python Versions Shield" src="https://img.shields.io/badge/Python-3.9%20|%203.10%20|%203.11%20|%203.12-blue?logo=python&logoColor=white">
     </a>
     <a href="https://github.com/psf/black"><img alt="Style Badge" src="https://img.shields.io/badge/code%20style-black-000000"></a>
     <a href="https://github.com/nickatnight/python-coingecko/blob/master/LICENSE">
