@@ -12,13 +12,16 @@ from pycoingecko.utils.helpers import get_client_api_methods
 @pytest.mark.parametrize(
     "method_name,class_instance",
     [
+        ("key", pro.Key),
         ("ping", resources.Ping),
         ("simple", resources.Simple),
         ("coins", pro.CoinsPro),
         ("contract", resources.Contract),
-        ("asset_platforms", resources.AssetPlatforms),
+        ("asset_platforms", pro.AssetPlatformsPro),
         ("categories", resources.Categories),
         ("exchanges", pro.ExchangesPro),
+        ("nfts", pro.NFTsPro),
+        ("companies", resources.Companies),
         ("derivatives", resources.Derivatives),
         ("exchange_rates", resources.ExchangeRates),
         ("search", resources.Search),
@@ -26,12 +29,14 @@ from pycoingecko.utils.helpers import get_client_api_methods
         ("global_data", pro.GlobalDataPro),
     ],
 )
-def test_ping_called_with_correct_args(method_name: str, class_instance: Any) -> None:
+def test_api_method_invokes_correct_class(
+    method_name: str, class_instance: Any
+) -> None:
     # Arrange
     client = CoinGeckoProClient(http=MagicMock())
 
     # Act / Assert
-    assert isinstance(getattr(client, method_name), class_instance)
+    assert getattr(client, method_name).__class__.__name__ == class_instance.__name__
 
 
 def test_supported_methods_count() -> None:
@@ -39,4 +44,4 @@ def test_supported_methods_count() -> None:
     client = CoinGeckoProClient(http=MagicMock())
 
     # Act / Assert
-    assert len(get_client_api_methods(client=client)) == 13
+    assert len(get_client_api_methods(client=client)) == 15

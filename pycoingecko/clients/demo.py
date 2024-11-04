@@ -39,6 +39,10 @@ class CoinGeckoDemoClient:
         return resources.Derivatives(self.http)
 
     @property
+    def nfts(self) -> resources.NFTs:
+        return resources.NFTs(self.http)
+
+    @property
     def exchange_rates(self) -> resources.ExchangeRates:
         return resources.ExchangeRates(self.http)
 

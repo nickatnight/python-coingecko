@@ -1,14 +1,24 @@
 [project]
 name = "python-coingecko"
-version = "0.0.4"
+version = "0.0.5"
 description = "Python wrapper for coingecko.com v3 api"
 readme = "README.md"
-requires-python = ">=3.11"
+requires-python = ">=3.9"
 maintainers = [
   {name = "Nick Kelly", email = "nialexanderke@proton.me"}
 ]
 dependencies = [
     "requests==2.32.3",
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
 ]
 
 [project.urls]
