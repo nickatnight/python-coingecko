@@ -18,6 +18,7 @@
     </a>
 </p>
 A Python wrapper for coingecko.com V3 api. Other notable api wrappers that didn't satisfy my need:
+
 - [pycoingecko](https://github.com/man-c/pycoingecko) has not been active in over two years and does not support the newer api endpoints
 
 ## Features
