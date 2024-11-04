@@ -10,11 +10,12 @@ def test_nft_list_api_called_with_correct_args() -> None:
 
     # Act
     client = NFTs(http=mock_http)
-    client.nft_list()
+    client.nft_list(order="h24_volume_usd_asc")
 
     # Assert
     mock_http.send.assert_called_once_with(
-        path=CoinGeckoApiUrls.NFTS, params={"page": 1, "per_page": 100}
+        path=CoinGeckoApiUrls.NFTS,
+        params={"order": "h24_volume_usd_asc", "page": 1, "per_page": 100},
     )
 
 

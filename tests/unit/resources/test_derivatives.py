@@ -37,11 +37,12 @@ def test_derivatives_exchange_by_id_api_called_with_correct_args() -> None:
 
     # Act
     client = Derivatives(http=mock_http)
-    client.exchange_by_id(exchange_id="bitmex")
+    client.exchange_by_id(exchange_id="bitmex", include_tickers="all")
 
     # Assert
     mock_http.send.assert_called_once_with(
-        path=CoinGeckoApiUrls.DERIVATIVES_EXCHANGE.format(id="bitmex")
+        path=CoinGeckoApiUrls.DERIVATIVES_EXCHANGE.format(id="bitmex"),
+        params={"include_tickers": "all"},
     )
 
 
