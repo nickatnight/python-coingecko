@@ -10,7 +10,7 @@
         <img alt="PyPi Shield" src="https://img.shields.io/pypi/v/python-coingecko">
     </a>
     <a href="https://img.shields.io/badge/Python-3.9%20|%203.10%20|%203.11%20|%203.12-blue?logo=python&logoColor=white">
-        <img alt="Python Versions Shield" src="https://img.shields.io/badge/Python-3.9%20|%203.10%20|%203.11%20|%203.12-blue?logo=python&logoColor=white">
+        <img alt="Python Versions Shield" src="https://img.shields.io/badge/Python-3.9%20|%203.10%20|%203.11%20|%203.12|%203.13%20-blue?logo=python&logoColor=white">
     </a>
     <a href="https://github.com/psf/black"><img alt="Style Badge" src="https://img.shields.io/badge/code%20style-black-000000"></a>
     <a href="https://github.com/nickatnight/python-coingecko/blob/master/LICENSE">
@@ -27,6 +27,7 @@ A Python wrapper for coingecko.com V3 api. Other notable api wrappers that didn'
 - ⚒️ **Modern tooling** using [uv](https://docs.astral.sh/uv/), [ruff](https://docs.astral.sh/ruff/), and [pre-commit](https://pre-commit.com/)
 - 📥 **GitHub Actions** CI/CD to automate [everything](.github/workflows/main.yml)
 - ↩️ **Code Coverage** Fully tested using tools like [Codecov](https://about.codecov.io/)
+- 🐍 **Python Support** All minor [versions](https://www.python.org/downloads/) from 3.9 are supported
 
 ## Installation
 ```sh
