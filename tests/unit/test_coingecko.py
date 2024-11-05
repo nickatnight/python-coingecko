@@ -4,7 +4,7 @@ import pytest
 
 from pycoingecko.clients.demo import CoinGeckoDemoClient
 from pycoingecko.clients.pro import CoinGeckoProClient
-from pycoingecko.coingecko import CoinGecko
+from pycoingecko.coingecko import CoinGecko, __version__
 from pycoingecko.utils import DEMO_COIN_GECKO_API_URL, PRO_COIN_GECKO_API_URL
 
 
@@ -35,4 +35,7 @@ def test_correct_clients_get_invoked(
 
     # Assert
     mock_get_client.assert_called_once_with(client=client_class)
-    mock_http.assert_called_once_with(base_url=url, headers={header: "test"})
+    mock_http.assert_called_once_with(
+        base_url=url,
+        headers={header: "test", "User-Agent": f"pycoingecko/v{__version__}"},
+    )
