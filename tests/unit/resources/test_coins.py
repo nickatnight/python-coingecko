@@ -101,12 +101,18 @@ def test_coin_history_chart_range_by_id_api_expected_response() -> None:
         vs_currency="usd",
         from_timestamp=1392577232,
         to_timestamp=1422577232,
+        precision="2",
     )
 
     # Assert
     mock_http.send.assert_called_once_with(
         path=CoinGeckoApiUrls.COIN_HISTORY_TIME_RANGE.format(id="bitcoin"),
-        params={"vs_currency": "usd", "from": 1392577232, "to": 1422577232},
+        params={
+            "vs_currency": "usd",
+            "from": 1392577232,
+            "to": 1422577232,
+            "precision": "2",
+        },
     )
 
 

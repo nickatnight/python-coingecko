@@ -11,7 +11,9 @@ def test_tokens_top_pools_by_token_address_api_expected_response() -> None:
     # Act
     client = TokensOnChain(http=mock_http)
     client.top_pools_by_token_address(
-        network="eth", token_address="0x06da0fd433c1a5d7a4faa01111c044910a184553"
+        network="eth",
+        token_address="0x06da0fd433c1a5d7a4faa01111c044910a184553",
+        include="quote_token",
     )
 
     # Assert
@@ -19,4 +21,5 @@ def test_tokens_top_pools_by_token_address_api_expected_response() -> None:
         path=CoinGeckoApiUrls.ONCHAIN_TOKENS_TOP_POOLS.format(
             network="eth", token_address="0x06da0fd433c1a5d7a4faa01111c044910a184553"
         ),
+        params={"include": "quote_token"},
     )

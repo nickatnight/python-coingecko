@@ -14,6 +14,7 @@ def test_ohlcv_chart_by_pool_address_api_expected_response() -> None:
         network="eth",
         pool_address="0x06da0fd433c1a5d7a4faa01111c044910a184553",
         timeframe="day",
+        vs_currency="usd",
     )
 
     # Assert
@@ -23,4 +24,5 @@ def test_ohlcv_chart_by_pool_address_api_expected_response() -> None:
             pool_address="0x06da0fd433c1a5d7a4faa01111c044910a184553",
             timeframe="day",
         ),
+        params={"vs_currency": "usd"},
     )

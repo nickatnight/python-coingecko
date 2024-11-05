@@ -41,12 +41,15 @@ def test_pools_data_by_pool_address() -> None:
     # Act
     client = PoolsOnChain(http=mock_http)
     client.data_by_pool_address(
-        network="eth", pool_address="0x06da0fd433c1a5d7a4faa01111c044910a184553"
+        network="eth",
+        pool_address="0x06da0fd433c1a5d7a4faa01111c044910a184553",
+        include="base_token",
     )
 
     # Assert
     mock_http.send.assert_called_once_with(
         path=CoinGeckoApiUrls.ONCHAIN_POOL_BY_ADDRESS.format(
             network="eth", address="0x06da0fd433c1a5d7a4faa01111c044910a184553"
-        )
+        ),
+        params={"include": "base_token"},
     )
