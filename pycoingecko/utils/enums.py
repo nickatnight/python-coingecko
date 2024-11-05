@@ -85,3 +85,20 @@ class CoinGeckoApiUrls:
 
     # Companies
     COMPANIES = "companies/public_treasury/{coin_id}"
+
+    # On Chain
+    ONCHAIN_TOKEN_PRICE_BY_ADDRESS = (
+        "onchain/simple/networks/{network}/token_price/{addresses}"
+    )
+    ONCHAIN_NETWORKS = "onchain/networks"
+    ONCHAIN_DEXES_BY_NETWORK = "onchain/networks/{network}/dexes"
+    ONCHAIN_TRADES_BY_POOL_ADDRESS = (
+        "onchain/networks/{network}/pools/{pool_address}/trades"
+    )
+    ONCHAIN_OHLCV_BY_POOL_ADDRESS = (
+        "onchain/networks/{network}/pools/{pool_address}/ohlcv/{timeframe}"
+    )
+    ONCHAIN_TRENDING_POOLS = "onchain/networks/trending_pools"
+    ONCHAIN_POOLS_TRENDING_BY_NETWORK = "onchain/networks/{network}/trending_pools"
+    ONCHAIN_POOL_BY_ADDRESS = "onchain/networks/{network}/pools/{address}"
+    ONCHAIN_TOKENS_TOP_POOLS = "onchain/networks/{network}/tokens/{token_address}/pools"
