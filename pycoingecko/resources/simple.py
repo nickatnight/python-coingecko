@@ -1,13 +1,19 @@
 from typing import Any, cast
 
-from pycoingecko.utils import CoinGeckoApiUrls, CoinGeckoRequestParams, IHttp
+from pycoingecko.utils import (
+    CoinGeckoApiUrls,
+    CoinGeckoRequestParams,
+    IHttp,
+    as_gecko_args,
+)
 
 
 class Simple:
     def __init__(self, http: IHttp) -> None:
         self.http = http
 
-    def coin_price_by_id(self, *, ids: str, vs_currencies: str, **kwargs: Any) -> dict:
+    @as_gecko_args
+    def price_by_id(self, *, ids: str, vs_currencies: str, **kwargs: Any) -> dict:
         "Query the prices of one or more coins by using their unique Coin API IDs"
         params = {"ids": ids, "vs_currencies": vs_currencies, **kwargs}
         request: CoinGeckoRequestParams = {"params": params}
@@ -15,7 +21,8 @@ class Simple:
 
         return cast(dict, response)
 
-    def coin_price_by_token(
+    @as_gecko_args
+    def price_by_token_addresses(
         self,
         *,
         asset_id: str,
@@ -35,7 +42,7 @@ class Simple:
 
         return cast(dict, response)
 
-    def supported_vs_currencies(self) -> list:
+    def supported_currencies(self) -> list:
         "Query all the supported currencies on CoinGecko."
         response = self.http.send(path=CoinGeckoApiUrls.SUPPORTED_CURRENCIES)
 

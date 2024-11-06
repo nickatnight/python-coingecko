@@ -45,6 +45,7 @@ class Contract:
         vs_currency: str,
         from_timestamp: int,
         to_timestamp: int,
+        interval: Optional[str] = None,
         precision: Optional[str] = None,
     ) -> dict:
         "Get the historical chart data within certain time range in UNIX along with price, market cap and 24hrs volume based on asset platform and particular token contract address."
@@ -56,6 +57,9 @@ class Contract:
             "from": from_timestamp,
             "to": to_timestamp,
         }
+
+        if interval:
+            params["interval"] = interval
 
         if precision:
             params["precision"] = precision

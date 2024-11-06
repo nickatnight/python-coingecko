@@ -39,7 +39,7 @@ Demo (free)
 ```
 >>> from pycoingecko import CoinGecko
 >>> coingecko = CoinGecko(api_key=<YOUR_API_KEY>)
->>> coingecko.simple.coin_price_by_id(ids="bitcoin")
+>>> coingecko.simple.price_by_id(ids="bitcoin", include_24hr_vol=True)  # can use regular Python boolean...will get converted to string
 {
   "bitcoin": {
     "usd": 67187.3358936566,
@@ -77,6 +77,26 @@ Pro
     "activated_at": 1712561709
   }
 ]
+```
+
+On Chain (Pro)
+```
+>>> from pycoingecko import CoinGecko
+>>> coingecko = CoinGecko(api_key=<YOUR_API_KEY>, is_pro=True)
+>>> coingecko.onchain_pools.trending_list_by_network(network="eth", include="base_token")
+{
+  "data": [
+    {
+      "id": "eth_0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
+      "type": "pool",
+      "attributes": {
+        "base_token_price_usd": "3653.12491645176",
+        ...
+      }
+    ...
+    }
+  ]
+}
 ```
 
 ## Development

@@ -10,7 +10,7 @@ def test_coins_key_api_expected_response() -> None:
 
     # Act
     client = Key(http=mock_http)
-    client.key()
+    client.api_usage()
 
     # Assert
     mock_http.send.assert_called_once_with(path=CoinGeckoApiUrls.KEY)

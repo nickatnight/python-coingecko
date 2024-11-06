@@ -29,9 +29,7 @@ class Derivatives:
 
         return cast(list, response)
 
-    def exchange_by_id(
-        self, *, exchange_id: str, include_tickers: Optional[str] = None
-    ) -> dict:
+    def by_id(self, *, exchange_id: str, include_tickers: Optional[str] = None) -> dict:
         "Query the derivatives exchange’s related data (id, name, open interest, .... etc) based on the exchanges’ id."
         path = CoinGeckoApiUrls.DERIVATIVES_EXCHANGE.format(id=exchange_id)
         request: CoinGeckoRequestParams = {}
@@ -44,7 +42,7 @@ class Derivatives:
 
         return cast(dict, response)
 
-    def exchanges_list_id_map(self) -> list:
+    def list_id_map(self) -> list:
         "Query all the derivatives exchanges with id and name on CoinGecko."
         response = self.http.send(path=CoinGeckoApiUrls.DERIVATIVES_EXCHANGE_LIST)
 

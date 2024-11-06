@@ -10,7 +10,7 @@ def test_ping_api_called_with_correct_args() -> None:
 
     # Act
     client = Ping(http=mock_http)
-    client.ping()
+    client.server_status()
 
     # Assert
     mock_http.send.assert_called_once_with(path=CoinGeckoApiUrls.PING)

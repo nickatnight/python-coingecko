@@ -10,11 +10,17 @@ def test_collection_with_market_data_api_called_with_correct_args() -> None:
 
     # Act
     client = NFTsPro(http=mock_http)
-    client.collection_with_market_data()
+    client.collection_with_market_data(asset_platform_id="ethereum")
 
     # Assert
     mock_http.send.assert_called_once_with(
-        path=CoinGeckoApiUrls.NFTS_MARKET, params={"page": 1, "per_page": 100}
+        path=CoinGeckoApiUrls.NFTS_MARKET,
+        params={
+            "asset_platform_id": "ethereum",
+            "order": "market_cap_usd_desc",
+            "per_page": 100,
+            "page": 1,
+        },
     )
 
 

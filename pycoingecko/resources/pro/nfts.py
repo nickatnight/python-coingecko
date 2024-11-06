@@ -9,7 +9,7 @@ class NFTsPro(NFTs):
         self,
         *,
         asset_platform_id: Optional[str] = None,
-        order: Optional[str] = None,
+        order: Optional[str] = "market_cap_usd_desc",
         per_page: Optional[int] = 100,
         page: Optional[int] = 1,
     ) -> list:

@@ -1,13 +1,19 @@
 from typing import Any, Optional, cast
 
-from pycoingecko.utils import CoinGeckoApiUrls, CoinGeckoRequestParams, IHttp
+from pycoingecko.utils import (
+    CoinGeckoApiUrls,
+    CoinGeckoRequestParams,
+    IHttp,
+    as_gecko_args,
+)
 
 
 class Coins:
     def __init__(self, http: IHttp) -> None:
         self.http = http
 
-    def coins_list(self, *, include_platform: bool = False) -> list:
+    @as_gecko_args
+    def list_all(self, *, include_platform: bool = False) -> list:
         "Query all the supported coins on CoinGecko with coins id, name and symbol."
         params = {"include_platform": include_platform}
         request: CoinGeckoRequestParams = {"params": params}
@@ -15,7 +21,8 @@ class Coins:
 
         return cast(list, response)
 
-    def coins_markets(self, *, vs_currency: str, **kwargs: Any) -> list:
+    @as_gecko_args
+    def list_with_markets(self, *, vs_currency: str, **kwargs: Any) -> list:
         "Query all the supported coins with price, market cap, volume and market related data."
         params = {"vs_currency": vs_currency, **kwargs}
         request: CoinGeckoRequestParams = {"params": params}
@@ -23,7 +30,8 @@ class Coins:
 
         return cast(list, response)
 
-    def coin_by_id(self, *, coin_id: str, **kwargs: Any) -> dict:
+    @as_gecko_args
+    def data_by_id(self, *, coin_id: str, **kwargs: Any) -> dict:
         "Query all the coin data of a coin (name, price, market .... including exchange tickers) on CoinGecko coin page based on a particular coin id."
         path = CoinGeckoApiUrls.COIN.format(id=coin_id)
         request: CoinGeckoRequestParams = {}
@@ -35,7 +43,8 @@ class Coins:
 
         return cast(dict, response)
 
-    def coin_tickers_by_id(self, *, coin_id: str, **kwargs: Any) -> dict:
+    @as_gecko_args
+    def tickers_by_id(self, *, coin_id: str, **kwargs: Any) -> dict:
         "Query the coin tickers on both centralized exchange (cex) and decentralized exchange (dex) based on a particular coin id."
         path = CoinGeckoApiUrls.COIN_TICKERS.format(id=coin_id)
         request: CoinGeckoRequestParams = {}
@@ -47,7 +56,8 @@ class Coins:
 
         return cast(dict, response)
 
-    def coin_history_by_id(
+    @as_gecko_args
+    def historical_data_by_id(
         self, *, coin_id: str, snapshot_date: str, localization: bool = True
     ) -> dict:
         "Query the historical data (price, market cap, 24hrs volume, etc) at a given date for a coin based on a particular coin id."
@@ -58,7 +68,7 @@ class Coins:
 
         return cast(dict, response)
 
-    def coin_history_chart_by_id(
+    def historical_chart_data_by_id(
         self, *, coin_id: str, vs_currency: str, days: str = "1", **kwargs: Any
     ) -> dict:
         "Query the historical price, market cap, volume, and total supply at a given date for a coin in a particular currency based on a particular coin id."
@@ -69,7 +79,7 @@ class Coins:
 
         return cast(dict, response)
 
-    def coin_history_chart_range_by_id(
+    def historical_chart_data_within_time_range_by_id(
         self,
         *,
         coin_id: str,
@@ -94,17 +104,21 @@ class Coins:
 
         return cast(dict, response)
 
-    def coin_ohlc_by_id(
+    def ohlc_chart_by_id(
         self,
         *,
         coin_id: str,
         vs_currency: str = "usd",
         days: str = "1",
+        interval: Optional[str] = None,
         precision: Optional[str] = None,
     ) -> list:
-        "Get the historical OHLC (Open, High, Low, Close) of a coin within a range in UNIX timestamp."
+        "Get the OHLC chart (Open, High, Low, Close) of a coin based on particular coin id.."
         params = {"vs_currency": vs_currency, "days": days}
         path = CoinGeckoApiUrls.COIN_OHLC.format(id=coin_id)
+
+        if interval:
+            params["interval"] = interval
 
         if precision:
             params["precision"] = precision

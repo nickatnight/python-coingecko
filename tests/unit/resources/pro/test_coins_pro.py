@@ -63,12 +63,12 @@ def test_coins_circulating_supply_api_expected_response() -> None:
 
     # Act
     client = CoinsPro(http=mock_http)
-    client.circulating_supply(coin_id="bitcoin", days="1")
+    client.circulating_supply(coin_id="bitcoin", days="1", interval="daily")
 
     # Assert
     mock_http.send.assert_called_once_with(
         path=CoinGeckoApiUrls.COIN_CIRCULATING_SUPPLY.format(coin_id="bitcoin"),
-        params={"days": "1"},
+        params={"days": "1", "interval": "daily"},
     )
 
 

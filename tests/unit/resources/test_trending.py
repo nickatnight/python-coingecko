@@ -10,7 +10,7 @@ def test_trending_api_called_with_correct_args() -> None:
 
     # Act
     client = Trending(http=mock_http)
-    client.trending()
+    client.search()
 
     # Assert
     mock_http.send.assert_called_once_with(path=CoinGeckoApiUrls.TRENDING)
