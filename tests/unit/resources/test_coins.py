@@ -4,13 +4,13 @@ from pycoingecko.resources.coins import Coins
 from pycoingecko.utils import CoinGeckoApiUrls
 
 
-def test_coins_list_api_expected_response() -> None:
+def test_list_all_api_expected_response() -> None:
     # Arrange
     mock_http = MagicMock()
 
     # Act
     client = Coins(http=mock_http)
-    client.coins_list()
+    client.list_all()
 
     # Assert
     mock_http.send.assert_called_once_with(
@@ -18,13 +18,13 @@ def test_coins_list_api_expected_response() -> None:
     )
 
 
-def test_coins_markets_api_expected_response() -> None:
+def test_list_with_markets_api_expected_response() -> None:
     # Arrange
     mock_http = MagicMock()
 
     # Act
     client = Coins(http=mock_http)
-    client.coins_markets(vs_currency="usd")
+    client.list_with_markets(vs_currency="usd")
 
     # Assert
     mock_http.send.assert_called_once_with(
@@ -32,41 +32,45 @@ def test_coins_markets_api_expected_response() -> None:
     )
 
 
-def test_coin_by_id_api_expected_response() -> None:
+def test_data_by_id_api_expected_response() -> None:
     # Arrange
     mock_http = MagicMock()
 
     # Act
     client = Coins(http=mock_http)
-    client.coin_by_id(coin_id="bitcoin")
+    client.data_by_id(coin_id="bitcoin", localization=False, tickers=False)
 
     # Assert
     mock_http.send.assert_called_once_with(
-        path=CoinGeckoApiUrls.COIN.format(id="bitcoin")
+        path=CoinGeckoApiUrls.COIN.format(id="bitcoin"),
+        params={"localization": "false", "tickers": "false"},
     )
 
 
-def test_coin_tickers_by_id_api_expected_response() -> None:
+def test_tickers_by_id_api_expected_response() -> None:
     # Arrange
     mock_http = MagicMock()
 
     # Act
     client = Coins(http=mock_http)
-    client.coin_tickers_by_id(coin_id="bitcoin")
+    client.tickers_by_id(
+        coin_id="bitcoin", exchange_ids="binance", include_exchange_logo=True
+    )
 
     # Assert
     mock_http.send.assert_called_once_with(
-        path=CoinGeckoApiUrls.COIN_TICKERS.format(id="bitcoin")
+        path=CoinGeckoApiUrls.COIN_TICKERS.format(id="bitcoin"),
+        params={"exchange_ids": "binance", "include_exchange_logo": "true"},
     )
 
 
-def test_coin_history_by_id_api_expected_response() -> None:
+def test_historical_data_by_id_api_expected_response() -> None:
     # Arrange
     mock_http = MagicMock()
 
     # Act
     client = Coins(http=mock_http)
-    client.coin_history_by_id(coin_id="bitcoin", snapshot_date="30-12-2011")
+    client.historical_data_by_id(coin_id="bitcoin", snapshot_date="30-12-2011")
 
     # Assert
     mock_http.send.assert_called_once_with(
@@ -75,13 +79,13 @@ def test_coin_history_by_id_api_expected_response() -> None:
     )
 
 
-def test_coin_history_chart_by_id_api_expected_response() -> None:
+def test_historical_chart_data_by_id_api_expected_response() -> None:
     # Arrange
     mock_http = MagicMock()
 
     # Act
     client = Coins(http=mock_http)
-    client.coin_history_chart_by_id(coin_id="bitcoin", vs_currency="usd")
+    client.historical_chart_data_by_id(coin_id="bitcoin", vs_currency="usd")
 
     # Assert
     mock_http.send.assert_called_once_with(
@@ -90,13 +94,13 @@ def test_coin_history_chart_by_id_api_expected_response() -> None:
     )
 
 
-def test_coin_history_chart_range_by_id_api_expected_response() -> None:
+def test_historical_chart_data_within_time_range_by_id_api_expected_response() -> None:
     # Arrange
     mock_http = MagicMock()
 
     # Act
     client = Coins(http=mock_http)
-    client.coin_history_chart_range_by_id(
+    client.historical_chart_data_within_time_range_by_id(
         coin_id="bitcoin",
         vs_currency="usd",
         from_timestamp=1392577232,
@@ -116,16 +120,21 @@ def test_coin_history_chart_range_by_id_api_expected_response() -> None:
     )
 
 
-def test_coin_ohlc_by_id_api_expected_response() -> None:
+def test_ohlc_chart_by_id_api_expected_response() -> None:
     # Arrange
     mock_http = MagicMock()
 
     # Act
     client = Coins(http=mock_http)
-    client.coin_ohlc_by_id(coin_id="bitcoin")
+    client.ohlc_chart_by_id(coin_id="bitcoin", interval="daily", precision="2")
 
     # Assert
     mock_http.send.assert_called_once_with(
         path=CoinGeckoApiUrls.COIN_OHLC.format(id="bitcoin"),
-        params={"vs_currency": "usd", "days": "1"},
+        params={
+            "vs_currency": "usd",
+            "days": "1",
+            "interval": "daily",
+            "precision": "2",
+        },
     )

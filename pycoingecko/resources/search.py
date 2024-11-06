@@ -7,9 +7,9 @@ class Search:
     def __init__(self, http: IHttp) -> None:
         self.http = http
 
-    def search(self, query: str) -> dict:
+    def query(self, q: str) -> dict:
         "Search for coins, categories and markets listed on CoinGecko."
-        params = {"query": query}
+        params = {"query": q}
         request: CoinGeckoRequestParams = {"params": params}
         response = self.http.send(path=CoinGeckoApiUrls.SEARCH, **request)
 

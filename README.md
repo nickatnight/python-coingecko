@@ -39,7 +39,7 @@ Demo (free)
 ```
 >>> from pycoingecko import CoinGecko
 >>> coingecko = CoinGecko(api_key=<YOUR_API_KEY>)
->>> coingecko.simple.coin_price_by_id(ids="bitcoin")
+>>> coingecko.simple.price_by_id(ids="bitcoin")
 {
   "bitcoin": {
     "usd": 67187.3358936566,

@@ -60,6 +60,8 @@ def test_contract_coin_historical_chart_range_by_token_address() -> None:
         vs_currency="usd",
         from_timestamp=1392577232,
         to_timestamp=1422577232,
+        interval="5m",
+        precision="1",
     )
 
     # Assert
@@ -72,5 +74,7 @@ def test_contract_coin_historical_chart_range_by_token_address() -> None:
             "vs_currency": "usd",
             "from": 1392577232,
             "to": 1422577232,
+            "interval": "5m",
+            "precision": "1",
         },
     )

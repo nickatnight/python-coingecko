@@ -7,7 +7,7 @@ class Ping:
     def __init__(self, http: IHttp) -> None:
         self.http = http
 
-    def ping(self) -> dict:
+    def server_status(self) -> dict:
         "Check the API server status"
         response = self.http.send(path=CoinGeckoApiUrls.PING)
 

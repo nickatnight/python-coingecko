@@ -7,7 +7,7 @@ class NetworksOnChain:
     def __init__(self, http: IHttp) -> None:
         self.http = http
 
-    def networks_list(self, *, page: Optional[int] = None) -> dict:
+    def networks_list(self, *, page: Optional[int] = 1) -> dict:
         "Query all the supported networks on GeckoTerminal."
         request: CoinGeckoRequestParams = {}
 

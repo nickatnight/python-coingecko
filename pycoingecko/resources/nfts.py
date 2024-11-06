@@ -13,7 +13,7 @@ class NFTs:
         order: Optional[str] = None,
         per_page: Optional[int] = 100,
         page: Optional[int] = 1,
-    ) -> dict:
+    ) -> list:
         "Query all supported NFTs with id, contract address, name, asset platform id and symbol on CoinGecko."
         params = {}
         request: CoinGeckoRequestParams = {}
@@ -32,7 +32,7 @@ class NFTs:
 
         response = self.http.send(path=CoinGeckoApiUrls.NFTS, **request)
 
-        return cast(dict, response)
+        return cast(list, response)
 
     def collection_by_id(self, *, collection_id: str) -> dict:
         "Query all the NFT data (name, floor price, 24 hr volume....) based on the nft collection id."

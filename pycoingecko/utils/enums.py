@@ -5,7 +5,7 @@ class CoinGeckoApiUrls:
     # Simple
     PRICE = "simple/price"
     TOKEN_PRICE = "simple/token_price/{id}"
-    SUPPORTED_CURRENCIES = "simple/supported_vs_currencies"
+    SUPPORTED_CURRENCIES = "simple/supported_currencies"
 
     # Coins
     COINS_LIST = "coins/list"
@@ -102,3 +102,12 @@ class CoinGeckoApiUrls:
     ONCHAIN_POOLS_TRENDING_BY_NETWORK = "onchain/networks/{network}/trending_pools"
     ONCHAIN_POOL_BY_ADDRESS = "onchain/networks/{network}/pools/{address}"
     ONCHAIN_TOKENS_TOP_POOLS = "onchain/networks/{network}/tokens/{token_address}/pools"
+    ONCHAIN_TOKEN_BY_ADDRESS = "onchain/networks/{network}/tokens/{address}"
+    ONCHAIN_TOKEN_BY_MULTI_ADDRESSES = (
+        "onchain/networks/{network}/tokens/multi/{addresses}"
+    )
+    ONCHAIN_TOKEN_INFO_BY_ADDRESS = "onchain/networks/{network}/tokens/{address}/info"
+    ONCHAIN_TOKEN_POOL_INFO_BY_ADDRESS = (
+        "onchain/networks/{network}/pools/{pool_address}/info"
+    )
+    ONCHAIN_TOKEN_MOST_RECENTLY_UPDATED = "onchain/tokens/info_recently_updated"

@@ -7,7 +7,7 @@ class Key:
     def __init__(self, http: IHttp) -> None:
         self.http = http
 
-    def key(self) -> dict:
+    def api_usage(self) -> dict:
         "Monitor your account's API usage, including rate limits, monthly total credits, remaining credits, and more."
         response = self.http.send(path=CoinGeckoApiUrls.KEY)
 

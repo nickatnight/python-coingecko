@@ -10,7 +10,7 @@ def test_search_api_called_with_correct_args() -> None:
 
     # Act
     client = Search(http=mock_http)
-    client.search(query="sol")
+    client.query(q="sol")
 
     # Assert
     mock_http.send.assert_called_once_with(
