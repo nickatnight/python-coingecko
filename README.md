@@ -80,7 +80,7 @@ Pro
 ]
 ```
 
-On Chain (Pro)
+On Chain - Beta (Pro)
 ```
 >>> from pycoingecko import CoinGecko
 >>> coingecko = CoinGecko(api_key=<YOUR_API_KEY>, is_pro=True)
@@ -98,6 +98,25 @@ On Chain (Pro)
     }
   ]
 }
+```
+
+Retry strategy to respect coingecko api limits
+```
+...
+>>> for i in range(10):
+...     client.ping.server_status()
+...
+2024-11-06 22:33:21,731 [DEBUG] https://api.coingecko.com:443 "GET /api/v3/ping HTTP/11" 200 None
+{'gecko_says': '(V3) To the Moon!'}
+2024-11-06 22:33:21,844 [DEBUG] https://api.coingecko.com:443 "GET /api/v3/ping HTTP/11" 200 None
+{'gecko_says': '(V3) To the Moon!'}
+2024-11-06 22:33:21,965 [DEBUG] https://api.coingecko.com:443 "GET /api/v3/ping HTTP/11" 200 None
+{'gecko_says': '(V3) To the Moon!'}
+2024-11-06 22:33:21,991 [DEBUG] https://api.coingecko.com:443 "GET /api/v3/ping HTTP/11" 429 187
+2024-11-06 22:33:21,992 [DEBUG] Incremented Retry for (url='/api/v3/ping'): Retry(total=2, connect=None, read=None, redirect=None, status=None)
+2024-11-06 22:34:21,997 [DEBUG] Retry: /api/v3/ping
+2024-11-06 22:34:22,162 [DEBUG] https://api.coingecko.com:443 "GET /api/v3/ping HTTP/11" 200 None
+...
 ```
 
 ## Development
