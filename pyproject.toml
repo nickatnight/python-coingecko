@@ -1,6 +1,6 @@
 [project]
 name = "python-coingecko"
-version = "0.0.9"
+version = "0.0.10"
 description = "Python wrapper for coingecko.com v3 api"
 readme = "README.md"
 requires-python = ">=3.9"
