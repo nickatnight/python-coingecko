@@ -23,22 +23,34 @@ def _get_retry() -> Retry:
     )
 
 
+def _get_headers(headers: Optional[dict] = None) -> dict:
+    _headers = copy.deepcopy(default_headers)
+
+    if headers is not None:
+        _headers.update(**headers)
+
+    return _headers
+
+
+def _get_session(headers: Optional[dict] = None) -> requests.Session:
+    s = requests.Session()
+    adapter = HTTPAdapter(max_retries=_get_retry())
+    _headers = _get_headers(headers)
+
+    s.mount("https://", adapter)
+    s.mount("http://", adapter)
+
+    s.headers.update(_headers)
+
+    return s
+
+
 class RequestsClient(IHttp):
     def __init__(
         self, base_url: Optional[str] = "", headers: Optional[dict] = None
     ) -> None:
         self.base_url = base_url
-        _headers = copy.deepcopy(default_headers)
-
-        if headers is not None:
-            _headers.update(**headers)
-
-        adapter = HTTPAdapter(max_retries=_get_retry())
-
-        self.s = requests.Session()
-        self.s.mount("https://", adapter)
-        self.s.mount("http://", adapter)
-        self.s.headers.update(_headers)
+        self.s = _get_session(headers)
 
     def send(self, path: str, method: str = "get", **extra: Any) -> dict | list:
         url = f"{self.base_url}{path}"

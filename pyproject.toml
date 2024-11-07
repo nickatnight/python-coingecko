@@ -40,6 +40,7 @@ dev-dependencies = [
     "types-requests==2.32.0.20241016",
     "codespell==2.3.0",
     "twine==5.1.1",
+    "ipython>=8.18.1",
 ]
 
 [tool.isort]
