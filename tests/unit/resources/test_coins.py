@@ -10,11 +10,11 @@ def test_list_all_api_expected_response() -> None:
 
     # Act
     client = Coins(http=mock_http)
-    client.list_all()
+    client.list_all(include_platform=True)
 
     # Assert
     mock_http.send.assert_called_once_with(
-        path=CoinGeckoApiUrls.COINS_LIST, params={"include_platform": False}
+        path=CoinGeckoApiUrls.COINS_LIST, params={"include_platform": "true"}
     )
 
 
@@ -70,12 +70,14 @@ def test_historical_data_by_id_api_expected_response() -> None:
 
     # Act
     client = Coins(http=mock_http)
-    client.historical_data_by_id(coin_id="bitcoin", snapshot_date="30-12-2011")
+    client.historical_data_by_id(
+        coin_id="bitcoin", snapshot_date="30-12-2011", localization=True
+    )
 
     # Assert
     mock_http.send.assert_called_once_with(
         path=CoinGeckoApiUrls.COIN_HISTORY.format(id="bitcoin"),
-        params={"date": "30-12-2011", "localization": True},
+        params={"date": "30-12-2011", "localization": "true"},
     )
 
 

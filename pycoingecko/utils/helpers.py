@@ -20,6 +20,7 @@ def as_gecko_args(func: Callable) -> Callable:
         # check in **kwargs for lists and booleans
         for kwarg in kwargs:
             value = kwargs[kwarg]
+
             # check if arg is list and convert it to comma-separated string
             if isinstance(value, list):
                 value = ",".join(value)

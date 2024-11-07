@@ -13,10 +13,14 @@ class Coins:
         self.http = http
 
     @as_gecko_args
-    def list_all(self, *, include_platform: bool = False) -> list:
+    def list_all(self, *, include_platform: Optional[bool] = None) -> list:
         "Query all the supported coins on CoinGecko with coins id, name and symbol."
-        params = {"include_platform": include_platform}
-        request: CoinGeckoRequestParams = {"params": params}
+        request: CoinGeckoRequestParams = {}
+
+        if include_platform:
+            params = {"include_platform": include_platform}
+            request = {"params": params}
+
         response = self.http.send(path=CoinGeckoApiUrls.COINS_LIST, **request)
 
         return cast(list, response)
@@ -58,12 +62,17 @@ class Coins:
 
     @as_gecko_args
     def historical_data_by_id(
-        self, *, coin_id: str, snapshot_date: str, localization: bool = True
+        self, *, coin_id: str, snapshot_date: str, localization: Optional[bool] = None
     ) -> dict:
         "Query the historical data (price, market cap, 24hrs volume, etc) at a given date for a coin based on a particular coin id."
+        request: CoinGeckoRequestParams = {}
         path = CoinGeckoApiUrls.COIN_HISTORY.format(id=coin_id)
-        params = {"date": snapshot_date, "localization": localization}
-        request: CoinGeckoRequestParams = {"params": params}
+        params: dict[str, Any] = {"date": snapshot_date}
+
+        if localization:
+            params["localization"] = localization
+
+        request = {"params": params}
         response = self.http.send(path=path, **request)
 
         return cast(dict, response)
