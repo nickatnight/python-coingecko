@@ -23,6 +23,7 @@ A Python wrapper for coingecko.com V3 api. Other notable api wrappers that didn'
 
 ## Features
 - 🪙 **CoinGecko** [api routes](https://docs.coingecko.com/reference/introduction), including current beta
+- ♻️ **Retry Strategy** Sensible defaults to reliably retry/back-off fetching data from coingecko
 - ✏️ **MyPy** Fully typed using most [recent versions](https://mypy-lang.org/)
 - ⚒️ **Modern tooling** using [uv](https://docs.astral.sh/uv/), [ruff](https://docs.astral.sh/ruff/), and [pre-commit](https://pre-commit.com/)
 - 📥 **GitHub Actions** CI/CD to automate [everything](.github/workflows/main.yml)

@@ -8,7 +8,7 @@ from pycoingecko.utils import (
 from pycoingecko.utils.helpers import get_client_api_methods
 
 
-__version__ = "0.0.7"
+__version__ = "0.0.9"
 
 
 class CoinGecko:
