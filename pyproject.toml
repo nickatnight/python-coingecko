@@ -121,3 +121,17 @@ strict_equality = true
 [[tool.mypy.overrides]]
 module = ["requests.packages.*"]
 ignore_missing_imports = true
+
+[tool.semantic_release]
+version_variable = [
+    "pycoingecko/coingecko.py:__version__"
+]
+version_toml = [
+    "pyproject.toml:project.version"
+]
+major_on_zero = false
+branch = "main"
+upload_to_PyPI = true
+upload_to_release = true
+build_command = "pip install uv && uv build"
+tag_format = "{version}"
