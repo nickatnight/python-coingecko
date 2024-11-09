@@ -82,7 +82,7 @@ jobs:
         # Adjust tag with desired version if applicable.
         uses: python-semantic-release/python-semantic-release@v9.12.2
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.PYPI_GH_PAT }}
           force: patch
           git_committer_name: "github-actions"
           git_committer_email: "actions@users.noreply.github.com"
@@ -95,5 +95,5 @@ jobs:
         uses: python-semantic-release/publish-action@v9.12.2
         if: steps.release.outputs.released == 'true'
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.PYPI_GH_PAT }}
           tag: ${{ steps.release.outputs.tag }}
