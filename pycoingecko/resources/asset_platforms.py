@@ -8,7 +8,10 @@ class AssetPlatforms:
         self.http = http
 
     def asset_platforms(self, filters: Optional[str] = None) -> list:
-        "Query all the asset platforms on CoinGecko"
+        """Query all the asset platforms on CoinGecko
+
+        :param filters:     Apply relevant filters to results
+        """
         request: CoinGeckoRequestParams = {}
 
         if filters:

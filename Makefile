@@ -21,3 +21,7 @@ lint-all: black isort ruff mypy
 test:
 	@echo "Running tests"
 	uv run pytest --cov-report=html --cov=pycoingecko/ tests/
+
+sphinx:
+	@echo "Building sphinx documentation"
+	uv run sphinx-build -M html docs/source/ docs/build/

@@ -8,7 +8,7 @@ class Derivatives:
         self.http = http
 
     def ticker_list(self) -> list:
-        "Query all the tickers from derivatives exchanges on CoinGecko."
+        """Query all the tickers from derivatives exchanges on CoinGecko."""
         response = self.http.send(path=CoinGeckoApiUrls.DERIVATIVES_TICKERS)
 
         return cast(list, response)
@@ -20,7 +20,12 @@ class Derivatives:
         per_page: int = 100,
         page: int = 1,
     ) -> list:
-        "Query all the derivatives exchanges with related data (id, name, open interest, .... etc) on CoinGecko."
+        """Query all the derivatives exchanges with related data (id, name, open interest, .... etc) on CoinGecko.
+
+        :param order:     Sort results by field, default: open_interest_btc_desc
+        :param per_page:  Total results per page, default: 100
+        :param page:      Page through results, default: 1
+        """
         params = {"order": order, "per_page": per_page, "page": page}
         request: CoinGeckoRequestParams = {"params": params}
         response = self.http.send(
@@ -30,7 +35,11 @@ class Derivatives:
         return cast(list, response)
 
     def by_id(self, *, exchange_id: str, include_tickers: Optional[str] = None) -> dict:
-        "Query the derivatives exchange’s related data (id, name, open interest, .... etc) based on the exchanges’ id."
+        """Query the derivatives exchange’s related data (id, name, open interest, .... etc) based on the exchanges’ id.
+
+        :param exchange_id:     The exchange id
+        :param include_tickers: Include tickers data
+        """
         path = CoinGeckoApiUrls.DERIVATIVES_EXCHANGE.format(id=exchange_id)
         request: CoinGeckoRequestParams = {}
 
@@ -43,7 +52,7 @@ class Derivatives:
         return cast(dict, response)
 
     def list_id_map(self) -> list:
-        "Query all the derivatives exchanges with id and name on CoinGecko."
+        """Query all the derivatives exchanges with id and name on CoinGecko."""
         response = self.http.send(path=CoinGeckoApiUrls.DERIVATIVES_EXCHANGE_LIST)
 
         return cast(list, response)

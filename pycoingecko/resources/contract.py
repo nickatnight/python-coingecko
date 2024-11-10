@@ -10,7 +10,11 @@ class Contract:
     def coin_data_by_token_address(
         self, *, coin_id: str, contract_address: str
     ) -> dict:
-        "Query all the coin data (name, price, market .... including exchange tickers) on CoinGecko coin page based on asset platform and particular token contract address."
+        """Query all the coin data (name, price, market .... including exchange tickers) on CoinGecko coin page based on asset platform and particular token contract address.
+
+        :param coin_id:             The coin id
+        :param contract_address:    The contract address of a token
+        """
         path = CoinGeckoApiUrls.COINS_CONTRACT_ADDRESS.format(
             id=coin_id, contract_address=contract_address
         )
@@ -27,7 +31,15 @@ class Contract:
         days: str = "1",
         **kwargs: Any,
     ) -> dict:
-        "Get the historical chart data including time in UNIX, price, market cap and 24hrs volume based on asset platform and particular token contract address."
+        """Get the historical chart data including time in UNIX, price, market cap and 24hrs volume based on asset platform and particular token contract address.
+
+        :param coin_id:             The coin id
+        :param contract_address:    The contract address of a token
+        :param vs_currency:         The target currency of coins
+        :param days:                Data up to number of days ago
+        :param interval:            Data interval, leave empty for auto granularity Possible value
+        :param precision:           Decimal place for currency price value
+        """
         path = CoinGeckoApiUrls.COINS_CONTRACT_CHART_ADDRESS_BY_TOKEN.format(
             id=coin_id, contract_address=contract_address
         )
@@ -48,7 +60,16 @@ class Contract:
         interval: Optional[str] = None,
         precision: Optional[str] = None,
     ) -> dict:
-        "Get the historical chart data within certain time range in UNIX along with price, market cap and 24hrs volume based on asset platform and particular token contract address."
+        """Get the historical chart data within certain time range in UNIX along with price, market cap and 24hrs volume based on asset platform and particular token contract address.
+
+        :param coin_id:             The coin id
+        :param contract_address:    The contract address of a token
+        :param vs_currency:         The target currency of coins
+        :param from_timestamp:      Starting date in UNIX timestamp
+        :param to_timestamp:        Ending date in UNIX timestamp
+        :param interval:            Data interval, leave empty for auto granularity Possible value
+        :param precision:           Decimal place for currency price value
+        """
         path = CoinGeckoApiUrls.COINS_CONTRACT_CHART_RANGE_ADDRESS_BY_TOKEN.format(
             id=coin_id, contract_address=contract_address
         )

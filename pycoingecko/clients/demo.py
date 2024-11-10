@@ -3,6 +3,8 @@ from pycoingecko.utils import IHttp
 
 
 class CoinGeckoDemoClient:
+    """CoinGecko Demo API client."""
+
     def __init__(self, http: IHttp) -> None:
         self.http = http
 

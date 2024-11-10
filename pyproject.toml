@@ -40,7 +40,10 @@ dev-dependencies = [
     "types-requests==2.32.0.20241016",
     "codespell==2.3.0",
     "twine==5.1.1",
-    "ipython>=8.18.1",
+    "ipython==8.18.1",
+    "sphinx==7.4.7",
+    "sphinx-rtd-theme==3.0.1",
+    "sphinx-rtd-dark-mode==1.3.0",
 ]
 
 [tool.isort]
