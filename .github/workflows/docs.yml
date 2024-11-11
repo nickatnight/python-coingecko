@@ -2,9 +2,6 @@ name: documentation
 
 on: [workflow_call]
 
-permissions:
-  contents: write
-
 jobs:
   shpinx:
     runs-on: ubuntu-latest
