@@ -8,7 +8,7 @@ class Trending:
         self.http = http
 
     def search(self) -> dict:
-        "Query trending search coins, nfts and categories on CoinGecko in the last 24 hours."
+        """Query trending search coins, nfts and categories on CoinGecko in the last 24 hours."""
         response = self.http.send(path=CoinGeckoApiUrls.TRENDING)
 
         return cast(dict, response)

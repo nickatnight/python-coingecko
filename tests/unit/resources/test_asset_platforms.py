@@ -10,7 +10,7 @@ def test_asset_platforms_api_called_with_correct_args() -> None:
 
     # Act
     client = AssetPlatforms(http=mock_http)
-    client.asset_platforms(filters="nft")
+    client.list_id_map(filters="nft")
 
     # Assert
     mock_http.send.assert_called_once_with(

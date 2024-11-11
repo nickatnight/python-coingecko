@@ -1,3 +1,4 @@
+import functools
 from typing import Any, Callable
 
 
@@ -16,6 +17,7 @@ def as_gecko_args(func: Callable) -> Callable:
     list values are converted to comma-separated strings
     """
 
+    @functools.wraps(func)
     def wrapper_as_gecko_args(*args: int, **kwargs: Any) -> Any:
         # check in **kwargs for lists and booleans
         for kwarg in kwargs:

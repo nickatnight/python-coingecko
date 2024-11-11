@@ -46,12 +46,20 @@ jobs:
           files: coverage.xml
           flags: unittests-py${{ matrix.python-version }}
 
+  docs:
+    if: ${{ github.ref == 'refs/heads/main' }}
+    name: Sphinx
+    uses: ./.github/workflows/docs.yml
+    secrets: inherit
+    permissions:
+      contents: write
+
   create-release:
     name: Create GitHub Release
     if: startsWith(github.ref, 'refs/tags/')
     permissions:
       contents: write
-    needs: [unit-tests]
+    needs: [unit-tests, docs]
     uses: nickatnight/gha-workflows/.github/workflows/create-release.yml@main
     secrets:
       token: ${{ secrets.GITHUB_TOKEN }}

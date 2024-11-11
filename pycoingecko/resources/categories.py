@@ -8,13 +8,16 @@ class Categories:
         self.http = http
 
     def categories_list(self) -> list:
-        "Query all the coins categories on CoinGecko."
+        """Query all the coins categories on CoinGecko."""
         response = self.http.send(path=CoinGeckoApiUrls.CATEGORIES)
 
         return cast(list, response)
 
     def categories_list_with_market_data(self, *, order: Optional[str] = None) -> list:
-        "Query all the coins categories with market data (market cap, volume, etc.) on CoinGecko."
+        """Query all the coins categories with market data (market cap, volume, etc.) on CoinGecko.
+
+        :param order:     Sort results by field, default: market_cap_desc
+        """
         request: CoinGeckoRequestParams = {}
 
         if order:

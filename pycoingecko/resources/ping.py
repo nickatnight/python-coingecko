@@ -4,6 +4,8 @@ from pycoingecko.utils import CoinGeckoApiUrls, IHttp
 
 
 class Ping:
+    """CoinGecko Ping API."""
+
     def __init__(self, http: IHttp) -> None:
         self.http = http
 
