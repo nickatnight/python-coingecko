@@ -29,12 +29,14 @@ extensions = [
     "sphinx_rtd_theme",
     "sphinx_rtd_dark_mode",
     "sphinx.ext.autodoc",
+    "sphinx.ext.githubpages",
 ]
 
 templates_path = ["_templates"]
 exclude_patterns: list[str] = []
 add_module_names = False
 
+sphinx_to_github = True
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
