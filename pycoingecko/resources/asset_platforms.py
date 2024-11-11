@@ -7,7 +7,7 @@ class AssetPlatforms:
     def __init__(self, http: IHttp) -> None:
         self.http = http
 
-    def asset_platforms(self, filters: Optional[str] = None) -> list:
+    def list_id_map(self, filters: Optional[str] = None) -> list:
         """Query all the asset platforms on CoinGecko
 
         :param filters:     Apply relevant filters to results

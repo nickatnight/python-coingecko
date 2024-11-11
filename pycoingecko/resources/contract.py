@@ -57,7 +57,6 @@ class Contract:
         vs_currency: str,
         from_timestamp: int,
         to_timestamp: int,
-        interval: Optional[str] = None,
         precision: Optional[str] = None,
     ) -> dict:
         """Get the historical chart data within certain time range in UNIX along with price, market cap and 24hrs volume based on asset platform and particular token contract address.
@@ -67,7 +66,6 @@ class Contract:
         :param vs_currency:         The target currency of coins
         :param from_timestamp:      Starting date in UNIX timestamp
         :param to_timestamp:        Ending date in UNIX timestamp
-        :param interval:            Data interval, leave empty for auto granularity Possible value
         :param precision:           Decimal place for currency price value
         """
         path = CoinGeckoApiUrls.COINS_CONTRACT_CHART_RANGE_ADDRESS_BY_TOKEN.format(
@@ -78,9 +76,6 @@ class Contract:
             "from": from_timestamp,
             "to": to_timestamp,
         }
-
-        if interval:
-            params["interval"] = interval
 
         if precision:
             params["precision"] = precision
