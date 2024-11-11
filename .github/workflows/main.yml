@@ -49,7 +49,7 @@ jobs:
   docs:
     if: ${{ github.ref == 'refs/heads/main' }}
     name: Sphinx
-    uses: ./github/workflows/docs.yml
+    uses: ./.github/workflows/docs.yml
     secrets: inherit
 
   create-release:
