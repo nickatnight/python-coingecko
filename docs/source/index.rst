@@ -43,3 +43,4 @@ application.
     :caption: Package Info
 
     package_info/contributing
+    package_info/references

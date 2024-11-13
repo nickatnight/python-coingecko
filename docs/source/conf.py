@@ -4,12 +4,13 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
 
 import os
-# -- Project information -----------------------------------------------------
-# https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 import sys
 from datetime import datetime
+from typing import Any
 
 
+# -- Project information -----------------------------------------------------
+# https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 sys.path.insert(0, ".")
 sys.path.append(os.path.abspath("../.."))
 
@@ -41,3 +42,7 @@ add_module_names = False
 html_theme = "sphinx_rtd_theme"
 html_static_path = ["_static"]
 html_theme_options = {"collapse_navigation": True}
+
+
+def setup(app: Any) -> None:
+    app.add_css_file("theme_override.css")
