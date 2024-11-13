@@ -10,7 +10,7 @@
         <img alt="PyPi Shield" src="https://img.shields.io/pypi/v/python-coingecko">
     </a>
     <a href="https://www.python.org/downloads/">
-        <img alt="Python Versions Shield" src="https://img.shields.io/badge/Python-3.9%20|%203.10%20|%203.11%20|%203.12|%203.13%20-blue?logo=python&logoColor=white">
+        <img alt="Python Versions Shield" src="https://img.shields.io/badge/Python-3.9+-blue?logo=python&logoColor=white">
     </a>
     <a href="https://python-coingecko.readthedocs.io/en/latest/"><img alt="Read The Docs Badge" src="https://img.shields.io/readthedocs/python-coingecko"></a>
     <a href="https://github.com/psf/black"><img alt="Style Badge" src="https://img.shields.io/badge/code%20style-black-000000"></a>
