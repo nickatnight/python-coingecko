@@ -33,6 +33,7 @@ application.
     :caption: Code Overview
 
     code_overview/coin_gecko_demo
+    code_overview/coin_gecko_pro
 
 .. toctree::
     :maxdepth: 1
