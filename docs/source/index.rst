@@ -10,6 +10,7 @@ Python CoinGecko documentation is organized into the following sections:
 
 - :ref:`getting_started`
 - :ref:`code_overview`
+- :ref:`package_info`
 
 Documentation Conventions
 -------------------------
@@ -34,6 +35,8 @@ application.
 
     code_overview/coin_gecko_demo
     code_overview/coin_gecko_pro
+
+.. _package_info:
 
 .. toctree::
     :maxdepth: 1

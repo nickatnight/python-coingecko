@@ -34,4 +34,4 @@ The project uses a combination of modern tooling for linting. To run the linter,
 
 .. code-block:: bash
 
-    $ make lint-all
+    $ make lint-all  # runs black, isort, ruff, mypy
