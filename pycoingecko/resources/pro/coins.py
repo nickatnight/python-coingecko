@@ -12,7 +12,12 @@ class CoinsPro(Coins):
         duration: Optional[str] = None,
         top_coins: Optional[str] = None,
     ) -> list:
-        "Query the top 30 coins with largest price gain and loss by a specific time duration"
+        """Query the top 30 coins with largest price gain and loss by a specific time duration.
+
+        :param vs_currency:     The target currency of coins
+        :param duration:        The time period for the data
+        :param top_coins:       The number of top coins
+        """
         params = {"vs_currency": vs_currency}
 
         if duration:
