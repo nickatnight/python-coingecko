@@ -36,4 +36,4 @@ $ pip install python-coingecko
 ```
 
 ## Documentation
-See full documentation [here](./docs/source/getting_started/quick_start.rst).
+See full documentation [here](https://python-coingecko.readthedocs.io/en/latest/).
