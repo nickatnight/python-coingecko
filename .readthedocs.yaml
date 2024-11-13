@@ -12,7 +12,7 @@ build:
   commands:
     - pip install -r docs/requirements.txt
     - mkdir -p $READTHEDOCS_OUTPUT/html/
-    - sphinx-build -M html docs/source/ $READTHEDOCS_OUTPUT/build/html
+    - sphinx-build -M html docs/source/ $READTHEDOCS_OUTPUT/html
 
 sphinx:
   configuration: docs/source/conf.py
