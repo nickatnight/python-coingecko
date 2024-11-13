@@ -11,7 +11,8 @@ build:
     python: "3.11"
   commands:
     - pip install -r docs/requirements.txt
-    - sphinx-build -M html docs/source/ docs/build/
+    - mkdir -p $READTHEDOCS_OUTPUT/html/
+    - sphinx-build -M html docs/source/ $READTHEDOCS_OUTPUT/build/html
 
 sphinx:
   configuration: docs/source/conf.py
