@@ -24,13 +24,13 @@ def test_collection_with_market_data_api_called_with_correct_args() -> None:
     )
 
 
-def test_market_chart_by_id_api_called_with_correct_args() -> None:
+def test_historical_chart_by_id_api_called_with_correct_args() -> None:
     # Arrange
     mock_http = MagicMock()
 
     # Act
     client = NFTsPro(http=mock_http)
-    client.market_chart_by_id(
+    client.historical_chart_by_id(
         nft_id="nifty-gateway",
         days="1",
     )

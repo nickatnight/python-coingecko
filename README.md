@@ -13,7 +13,9 @@
         <img alt="Python Versions Shield" src="https://img.shields.io/badge/Python-3.9+-blue?logo=python&logoColor=white">
     </a>
     <a href="https://python-coingecko.readthedocs.io/en/stable/"><img alt="Read The Docs Badge" src="https://img.shields.io/readthedocs/python-coingecko"></a>
-    <a href="https://github.com/psf/black"><img alt="Style Badge" src="https://img.shields.io/badge/code%20style-black-000000"></a>
+    <a href="https://pypi.org/project/python-coingecko/">
+        <img alt="Download Shield" src="https://img.shields.io/pypi/dm/python-coingecko">
+    </a>
     <a href="https://github.com/nickatnight/python-coingecko/blob/master/LICENSE">
         <img alt="License Shield" src="https://img.shields.io/github/license/nickatnight/python-coingecko">
     </a>
@@ -25,7 +27,7 @@ A Python wrapper for coingecko.com V3 api. Other notable api wrappers that didn'
 ## Features
 - 🪙 **CoinGecko** [api routes](https://docs.coingecko.com/reference/introduction), including current beta
 - ♻️ **Retry Strategy** Sensible defaults to reliably retry/back-off fetching data from coingecko
-- ✏️ **MyPy** Fully typed using most [recent versions](https://mypy-lang.org/)
+- ✏️ **Code Formatting** Fully typed with [mypy](https://mypy-lang.org/) and code formatters [black](https://github.com/psf/black) / [isort](https://pycqa.github.io/isort/)
 - ⚒️ **Modern tooling** using [uv](https://docs.astral.sh/uv/), [ruff](https://docs.astral.sh/ruff/), and [pre-commit](https://pre-commit.com/)
 - 📥 **GitHub Actions** CI/CD to automate [everything](.github/workflows/main.yml)
 - ↩️ **Code Coverage** Fully tested using tools like [Codecov](https://about.codecov.io/)
@@ -34,6 +36,15 @@ A Python wrapper for coingecko.com V3 api. Other notable api wrappers that didn'
 ## Installation
 ```sh
 $ pip install python-coingecko
+```
+
+## Usage
+```python
+from pycoingecko import CoinGecko
+
+client = CoinGecko()
+
+client.simple.price_by_id(ids="bitcoin", vs_currencies="usd")
 ```
 
 ## Documentation

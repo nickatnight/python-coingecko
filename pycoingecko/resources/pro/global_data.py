@@ -8,7 +8,11 @@ class GlobalDataPro(GlobalData):
     def volume_chart_within_time_range(
         self, *, days: str, vs_currency: Optional[str] = "usd"
     ) -> dict:
-        """query the historical volume chart data in BTC by specifying date range in UNIX based on exchange’s id"""
+        """Query the historical volume chart data in BTC by specifying date range in UNIX based on exchange’s id
+
+        :param days:        Data up to number of days
+        :param vs_currency: The target currency of market data (usd, eur, jpy, etc.)
+        """
         params = {"days": days, "vs_currency": vs_currency}
         request: CoinGeckoRequestParams = {"params": params}
         response = self.http.send(
