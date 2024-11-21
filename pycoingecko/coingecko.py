@@ -8,7 +8,7 @@ from pycoingecko.utils import (
 from pycoingecko.utils.helpers import get_client_api_methods
 
 
-__version__ = "0.0.12"
+__version__ = "0.0.13"
 
 
 class CoinGecko:
@@ -34,5 +34,6 @@ class CoinGecko:
         )
         attr_list = get_client_api_methods(client=client)
 
+        # assign client attributes to the class
         for attr in attr_list:
             setattr(self, attr, getattr(client(http), attr))

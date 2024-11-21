@@ -3,6 +3,7 @@ from typing import Any, Callable
 
 
 def get_client_api_methods(client: object) -> list:
+    """Get the list of methods available in the client object"""
     return [
         member
         for member in dir(client)
