@@ -46,3 +46,7 @@ client.simple.price_by_id(ids="bitcoin", vs_currencies="usd")
 
 ## Documentation
 See full documentation [here](https://python-coingecko.readthedocs.io/en/stable/).
+
+---
+
+If you would like to support development efforts, tips are greatly appreciated. SOL wallet address: HKmUpKBCcZGVX8RqLRcKyjYuY23hQHwnFSHXzdon4pCH
